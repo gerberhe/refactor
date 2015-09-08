@@ -1,6 +1,6 @@
 module Utilities
 	
-	def evaluate(x)
+	def leap_year?(x)
 		if x % 100 == 0
 			if x % 400 == 0
 				true
@@ -14,7 +14,7 @@ module Utilities
 		end
 	end
 
-	def amount(a)
+	def year_percent_in_seconds?(a)
 		('%.1f' % ((a / 31536000.0) * 100)) + '%'
 	end
 
