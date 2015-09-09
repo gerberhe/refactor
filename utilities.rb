@@ -14,14 +14,17 @@ SECONDS_IN_A_YEAR = 60 * 60 * 24 * 365.0
 		is_am?(x) ? convert_am(x) : convert_pm(x) 
 	end
 
-	def convert2(x)
+	def convert_to_standard_time(x)
 		a, b = x.split(":")
 		c = ""
 
-		if a.to_i < 12
-			c = a + b + " am"
+		if a.to_i > 12
+			aNew = a.to_i - 12
+			c = aNew.to_s + ":" + b + " pm"
+		elsif a.to_i == 12
+			c = a + ":" + b + " pm"
 		else
-			c = a + b + " pm"
+			c = a + ":" + b + " am"
 		end
 
 		return c
