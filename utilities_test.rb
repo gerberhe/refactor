@@ -34,9 +34,9 @@ class Methods2Test < MiniTest::Test
 	end
 
 	def test_convert_to_standard_time
-		assert_equal "12:45 pm",@m.convert_to_standard_time("12:45")
-		assert_equal "4:24 pm",@m.convert_to_standard_time("16:24")
-		assert_equal "4:56 am",@m.convert_to_standard_time("4:56")
-		assert_equal "6:19 am",@m.convert_to_standard_time("6:19")
+		assert_equal "12:45",@m.convert_to_standard_time("12:45")
+		assert_equal "4:24",@m.convert_to_standard_time("16:24")
+		assert_equal "4:56",@m.convert_to_standard_time("4:56")
+		assert_equal "6:19",@m.convert_to_standard_time("6:19")
 	end
 end

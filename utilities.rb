@@ -15,18 +15,31 @@ SECONDS_IN_A_YEAR = 60 * 60 * 24 * 365.0
 	end
 
 	def convert_to_standard_time(x)
+		is_pm2?(x) ? convert_pm(x) : convert_am(x)
+	end
+
+	def is_pm2?(x)
+		a, b = x.split(":")
+
+		a.to_i >= 12 ? true : false
+	end
+
+	def convert_pm(x)
+		a, b = x.split(":")
+		c = ""
+		aNew = (a.to_i - 12)
+
+		a.to_i == 12 ? c = a + ":" + b + " pm" : c = aNew.to_s + ":" + b + " pm"
+		
+		return c
+	end
+
+	def convert_am(x)
 		a, b = x.split(":")
 		c = ""
 
-		if a.to_i > 12
-			aNew = a.to_i - 12
-			c = aNew.to_s + ":" + b + " pm"
-		elsif a.to_i == 12
-			c = a + ":" + b + " pm"
-		else
-			c = a + ":" + b + " am"
-		end
-
+		c = a + ":" + b + " am"
+		
 		return c
 	end
 
