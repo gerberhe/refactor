@@ -23,5 +23,13 @@ class Methods2Test < MiniTest::Test
 	def test_year_percent_in_seconds
 		assert_equal '1.0%',@m.year_percent_in_seconds?(315360)
 		assert_equal '10.0%',@m.year_percent_in_seconds?(3153600)
+		assert_equal '20.0%',@m.year_percent_in_seconds?(6307200)
+	end
+
+	def test_convert_to_military_time
+		assert_equal "12:45",@m.convert_to_military_time("12:45 pm")
+		assert_equal "16:24",@m.convert_to_military_time("4:24 pm")
+		assert_equal "4:56",@m.convert_to_military_time("4:56 am")
+		assert_equal "6:19",@m.convert_to_military_time("6:19 am")
 	end
 end
